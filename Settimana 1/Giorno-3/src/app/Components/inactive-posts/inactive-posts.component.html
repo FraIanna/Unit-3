@@ -1,1 +1,14 @@
-<p>inactive-posts works!</p>
+<h1 class="text-center">Epic Blog</h1>
+<div class="row pb-3">
+  <h2>Post inattivi</h2>
+  <div
+    *ngFor="let post of getInactivePosts()"
+    class="divBg text-light p-3 rounded-5 my-3"
+  >
+    <h4>{{ post.title }}</h4>
+    <p>{{ post.body }}</p>
+    <a class="btn btn-outline-info" [routerLink]="['/post', post.id]"
+      >Leggi l'articolo completo</a
+    >
+  </div>
+</div>

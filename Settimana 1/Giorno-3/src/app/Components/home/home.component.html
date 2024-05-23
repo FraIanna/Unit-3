@@ -1,6 +1,6 @@
 <h1 class="text-center">Epic Blog</h1>
 <div class="row pb-3">
-  <div class="col pt-3 text-light rounded-5 p-3" id="main-post">
+  <div class="divBg col pt-3 text-light rounded-5 p-3">
     <h2>Post in evidenza</h2>
     <h4 *ngIf="postArray.length > 0">{{ postArray[0].title }}</h4>
     <p *ngIf="postArray.length > 0">{{ postArray[0].body }}</p>
@@ -9,6 +9,11 @@
 <div class="row">
   <div class="col text-light">
     <h5>Potrebbero piacerti anche questi post:</h5>
-    <a *ngFor="let post of random" href="#" class="d-flex">{{ post.title }}</a>
+    <a
+      *ngFor="let post of random"
+      [routerLink]="['/post', post.id]"
+      class="d-flex"
+      >{{ post.title }}</a
+    >
   </div>
 </div>
