@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { iObj, iPost } from '../../Models/i-post';
+import { iPost } from '../../Models/i-post';
+import { PostService } from '../../post.service';
 
 @Component({
   selector: 'app-home',
@@ -10,17 +11,14 @@ export class HomeComponent {
   postArray: iPost[] = [];
   random: iPost[] = [];
 
-  ngOnInit() {
-    fetch('../../../assets/db.json')
-      .then((response) => response.json())
-      .then((data: iObj) => {
-        this.postArray = data.posts;
-        this.randomPosts(4);
-        console.log(this.postArray);
-      })
-      .catch((error) => {
-        console.log('Errore nel recupero dei dati', error);
-      });
+  currentPost!: iPost;
+
+  constructor(private postSvc: PostService) {}
+
+  async ngOnInit() {
+    await this.postSvc.getPosts();
+    this.postArray = this.postSvc.getall();
+    this.randomPosts(4);
   }
 
   randomPosts(count: number) {

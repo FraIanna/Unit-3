@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+
+import { iPost } from '../../Models/i-post';
+import { PostService } from '../../post.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,11 +10,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './post-detail.component.scss',
 })
 export class PostDetailComponent {
-  constructor(private route: ActivatedRoute) {}
+  postArray: iPost[] = [];
+  random: iPost[] = [];
 
-  ngOnInit() {
-    this.route.params.subscribe((params) => {
-      let postId = params['id'];
+  currentPost!: iPost;
+
+  constructor(private postSvc: PostService, private route: ActivatedRoute) {}
+
+  async ngOnInit() {
+    await this.postSvc.getPosts();
+    this.route.params.subscribe((params: any) => {
+      this.currentPost = this.postSvc.getById(params.id);
     });
   }
 }

@@ -1,1 +1,4 @@
-<p class="text-light">post-detail works!</p>
+<div *ngIf="currentPost" class="text-light">
+  <h1>{{ currentPost.title }}</h1>
+  <p>{{ currentPost.body }}</p>
+</div>

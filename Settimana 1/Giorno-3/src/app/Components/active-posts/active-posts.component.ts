@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { iObj, iPost } from '../../Models/i-post';
+import { iPost } from '../../Models/i-post';
+import { PostService } from '../../post.service';
 
 @Component({
   selector: 'app-active-posts',
@@ -10,23 +11,15 @@ export class ActivePostsComponent {
   postArray: iPost[] = [];
   random: iPost[] = [];
 
-  ngOnInit() {
-    fetch('../../../assets/db.json')
-      .then((response) => response.json())
-      .then((data: iObj) => {
-        this.postArray = data.posts;
-        this.randomPosts(4);
-        console.log(this.postArray);
-      })
-      .catch((error) => {
-        console.log('Errore nel recupero dei dati', error);
-      });
+  currentPost!: iPost;
+
+  constructor(private postSvc: PostService) {}
+
+  async ngOnInit() {
+    await this.postSvc.getPosts();
+    this.postArray = this.postSvc.getall();
   }
 
-  randomPosts(count: number) {
-    const shuffled = this.postArray.slice(1).sort(() => 0.5 - Math.random());
-    this.random = shuffled.slice(0, count);
-  }
   getActivePosts(): iPost[] {
     return this.postArray.filter((post) => post.active);
   }
