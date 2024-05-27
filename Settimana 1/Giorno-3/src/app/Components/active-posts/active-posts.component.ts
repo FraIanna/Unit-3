@@ -15,9 +15,8 @@ export class ActivePostsComponent {
 
   constructor(private postSvc: PostService) {}
 
-  async ngOnInit() {
-    await this.postSvc.getPosts();
-    this.postArray = this.postSvc.getall();
+  ngOnInit() {
+    this.postArray = this.postSvc.allPosts;
   }
 
   getActivePosts(): iPost[] {

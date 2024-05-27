@@ -9,6 +9,7 @@ import { PostDetailComponent } from './Components/post-detail/post-detail.compon
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { Page404Component } from './Components/page404/page404.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,10 @@ import { Page404Component } from './Components/page404/page404.component';
     PostDetailComponent,
     NavbarComponent,
     HomeComponent,
-    Page404Component
+    Page404Component,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

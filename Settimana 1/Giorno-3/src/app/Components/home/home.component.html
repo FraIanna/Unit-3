@@ -12,6 +12,9 @@
     <div
       *ngFor="let post of postArray"
       class="divBg col pt-3 text-light rounded-5 p-3 my-3"
+      [ngClass]="{
+        'border border-primary': post.active,
+      }"
     >
       <h4>{{ post.title }}</h4>
       <p>{{ post.body }}</p>
@@ -28,7 +31,7 @@
       *ngFor="let post of random"
       [routerLink]="['/post', post.id]"
       class="d-flex"
-      >{{ post.title }}</a
-    >
+      >{{ post.title }}
+    </a>
   </div>
 </div>

@@ -17,8 +17,8 @@ export class PostDetailComponent {
 
   constructor(private postSvc: PostService, private route: ActivatedRoute) {}
 
-  async ngOnInit() {
-    await this.postSvc.getPosts();
+  ngOnInit() {
+    this.postArray = this.postSvc.allPosts;
     this.route.params.subscribe((params: any) => {
       this.currentPost = this.postSvc.getById(params.id);
     });
