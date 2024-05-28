@@ -255,5 +255,22 @@ export class PostService {
     else throw new Error('Post non trovato');
   }
 
+  getAllTags(): string[] {
+    const allTags: string[] = this.allPosts
+      .map((p) => p.tags)
+      .flat()
+      .reduce((uniqueTags, tag) => {
+        if (!uniqueTags.includes(tag)) {
+          uniqueTags.push(tag);
+        }
+        return uniqueTags;
+      }, [] as string[]);
+    return allTags;
+  }
+
+  filteredPost(tag: string): iPost[] {
+    return this.allPosts.filter((p) => p.tags.includes(tag));
+  }
+
   constructor() {}
 }

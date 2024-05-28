@@ -10,6 +10,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { Page404Component } from './Components/page404/page404.component';
 import { FormsModule } from '@angular/forms';
+import { SinglePostComponent } from './Components/single-post/single-post.component';
+import { RandomColorDirective } from './random-color.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     HomeComponent,
     Page404Component,
+    SinglePostComponent,
+    RandomColorDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
