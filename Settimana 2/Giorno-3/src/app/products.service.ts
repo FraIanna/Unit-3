@@ -22,4 +22,11 @@ export class ProductsService {
   delete(id: number) {
     return this.http.delete<iProduct>(`${this.apiUrl}/${id}`);
   }
+
+  addProductToArray(array: iProduct[], product: iProduct) {
+    if (!array.find((p) => p.id === product.id)) {
+      array.push(product);
+      console.log(array);
+    }
+  }
 }

@@ -8,15 +8,23 @@ import { iProduct, iProducts } from '../../../Models/products';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  constructor(private producsSvc: ProductsService) {}
+  constructor(private productsSvc: ProductsService) {}
 
-  products!: iProducts;
   productsArr: iProduct[] = [];
+  savedProducts: iProduct[] = [];
+  shoppingCartArr: iProduct[] = [];
 
   ngOnInit() {
-    this.producsSvc.getAll().subscribe((products) => {
-      this.products = products;
+    this.productsSvc.getAll().subscribe((products) => {
       this.productsArr = products.products;
     });
+  }
+
+  saveProduct(product: iProduct) {
+    this.productsSvc.addProductToArray(this.savedProducts, product);
+  }
+
+  addToCart(product: iProduct) {
+    this.productsSvc.addProductToArray(this.shoppingCartArr, product);
   }
 }

@@ -10,7 +10,14 @@
       <div class="card-body">
         <h5 class="card-title">{{ product.title }}</h5>
         <p class="card-text">{{ product.description }}</p>
-        <button class="btn btn-primary">Salva nei preferiti!</button>
+        <div class="d-flex gap-3">
+          <button class="btn btn-primary" (click)="saveProduct(product)">
+            Salva nei preferiti!
+          </button>
+          <button class="btn btn-success" (click)="addToCart(product)">
+            Acquista
+          </button>
+        </div>
       </div>
     </div>
   </div>
