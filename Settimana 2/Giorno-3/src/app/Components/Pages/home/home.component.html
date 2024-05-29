@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col">
+    <h1>Scegli i tuoi prodotti!</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3 my-3" *ngFor="let product of productsArr">
+    <div class="card h-100 py-3">
+      <img [src]="product.images" class="card-img-top" alt="image" />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <button class="btn btn-primary">Salva nei preferiti!</button>
+      </div>
+    </div>
+  </div>
+</div>
