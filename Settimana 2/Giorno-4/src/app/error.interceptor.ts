@@ -35,6 +35,8 @@ export class ErrorInterceptor implements HttpInterceptor {
             text: 'Page Not Found!',
             footer: '<a href="#">Why do I have this issue?</a>',
           });
+        } else {
+          console.error('HTTP error', error.message);
         }
         return throwError(() => new Error('Errore'));
       })
