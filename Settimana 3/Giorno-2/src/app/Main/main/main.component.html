@@ -1,0 +1,87 @@
+<div class="row pt-5">
+  <div class="col-6 offset-3 bg-primary p-5 rounded-4 box">
+    <form [formGroup]="form">
+      <h1 class="text-light pb-5">Inserisci qui i tuoi dati!</h1>
+      <div class="form-group d-flex flex-column gap-3">
+        <input
+          type="text"
+          formControlName="nome"
+          placeholder="Inserisci il tuo nome "
+          class="form-control shadow"
+        />
+        <span
+          *ngIf="isInvalidTouched('nome')"
+          class="form-control text-bg-danger fw-bold border-0"
+          >Campo richiesto! Inserisci il tuo nome</span
+        >
+        <input
+          type="text"
+          formControlName="cognome"
+          placeholder="Inserisci il tuo cognome"
+          class="form-control shadow"
+        />
+        <span
+          *ngIf="isInvalidTouched('cognome')"
+          class="form-control text-bg-danger fw-bold border-0"
+          >Campo richiesto! Inserisci il tuo cognome</span
+        >
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Inserisci qui la tua password"
+          class="form-control shadow"
+        />
+        <span
+          *ngIf="isInvalidTouched('password')"
+          class="form-control text-bg-danger fw-bold border-0"
+          >Campo richiesto! Inserisci la tua password</span
+        >
+        <input
+          type="password"
+          formControlName="confermaPassword"
+          placeholder="Conferma la tua password"
+          class="form-control shadow"
+        />
+        <span
+          *ngIf="isInvalidTouched('confermaPassword')"
+          class="form-control text-bg-danger fw-bold border-0"
+          >Campo richiesto! Conferma la tua password
+        </span>
+        <span
+          *ngIf="form.errors?.['passwordMatch'] &&
+          (form.get('confermaPassword')?.dirty || form.get('confermaPassword')?.touched)"
+          class="form-control text-bg-danger fw-bold border-0"
+          >Le password non coincidono!
+        </span>
+
+        <select name="genere" id="genere" class="form-select shadow">
+          <option value="">Seleziona il tuo genere</option>
+          <option value="Maschio">Maschio</option>
+          <option value="Femmina">Femmina</option>
+          <option value="Altro">Altro</option>
+        </select>
+        <p class="fs-4 text-light">Inserisci qui la tua immagine profilo</p>
+        <input type="file" formControlName="foto" class="form-control shadow" />
+        <p class="fs-4 text-light">Inserisci qui una breve biografia</p>
+        <textarea
+          formControlName="biografia"
+          rows="5"
+          class="form-control shadow"
+        ></textarea>
+        <input
+          type="text"
+          placeholder="Inserisci qui il tuo username"
+          class="form-control"
+          formControlName="username"
+        />
+        <div class="row">
+          <div class="col-6 offset-3">
+            <button class="btn btn-outline-light px-3 fs-5" (click)="submit()">
+              Invia
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
