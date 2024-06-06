@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+
+.box {
+  box-shadow: 1px 2px 20px 10px rgba(0, 0, 0, 0.5);
+}

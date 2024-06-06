@@ -1,0 +1,24 @@
+<div class="row pt-5">
+  <div class="col-6 offset-3 bg-primary p-5 rounded-4 box">
+    <form class="d-flex flex-column gap-3">
+      <h1 class="text-light pb-5">
+        Inserisci qui i tuoi dati se hai già un account
+      </h1>
+      <input
+        type="email"
+        class="form-control shadow"
+        name="email"
+        placeholder="inserisci qui la tua email"
+        [(ngModel)]="authData.email"
+      />
+      <input
+        type="password"
+        class="form-control shadow"
+        name="password"
+        placeholder="inserisci qui la tua password"
+        [(ngModel)]="authData.password"
+      />
+      <button class="btn btn-primary" (click)="login()">Login</button>
+    </form>
+  </div>
+</div>

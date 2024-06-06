@@ -1,0 +1,36 @@
+<div class="row pt-5">
+  <div class="col-6 offset-3 text-bg-primary p-5 rounded-4 box">
+    <form class="d-flex flex-column gap-3">
+      <h1>Registrati!</h1>
+      <input
+        type="text"
+        class="form-control"
+        name="nome"
+        placeholder="inserisci qui il tuo nome"
+        [(ngModel)]="newUser.nome"
+      />
+      <input
+        type="text"
+        class="form-control"
+        name="cognome"
+        placeholder="inserisci qui il tuo cognome"
+        [(ngModel)]="newUser.cognome"
+      />
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        placeholder="inserisci qui la tua email"
+        [(ngModel)]="newUser.email"
+      />
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        placeholder="inserisci qui la tua password"
+        [(ngModel)]="newUser.password"
+      />
+      <button class="btn btn-primary" (click)="register()">Registrati</button>
+    </form>
+  </div>
+</div>
